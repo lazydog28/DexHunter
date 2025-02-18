@@ -53,9 +53,9 @@ jobs:
           cargo make release
           echo name="DexHunter-$(cargo metadata --no-deps --format-version=1 | jq -r '.packages[0].version').r$(git rev-list --count HEAD).$(git rev-parse --short HEAD) (${{ matrix.abi }})" >> $GITHUB_OUTPUT
 
-      - name: Upload artifacts
-        if: success()
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ steps.release.outputs.name }}
-          path: ./target/${{ matrix.abi }}/release/dexhunter
+      #- name: Upload artifacts
+      #  if: success()
+      #  uses: actions/upload-artifact@v3
+      #  with:
+      #    name: ${{ steps.release.outputs.name }}
+      #    path: ./target/${{ matrix.abi }}/release/dexhunter
